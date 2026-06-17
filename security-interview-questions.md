@@ -300,7 +300,7 @@ Use this to assess your knowledge across Web Application Security, Mobile Securi
 1. What is the difference between CWE and CVE?
 2. What is SOP (Same-Origin Policy)?
 3. What is server-side validation?
-
+4. Rest API vs soap api vs Graphql
 
 ---
 
@@ -317,6 +317,7 @@ Use this to assess your knowledge across Web Application Security, Mobile Securi
 5. If we want to share resources from a cross-origin domain using CORS, how does the preflight request behave? Is it sent the first time only or on every request? Where does the preflight request happen?
 
 6. Suppose an application is deployed on a container cluster. How would you perform a security assessment of it?
+7. If User1 and User2 are on the same network, and User2 wants to view the burpsuite requests and responses that User1 is analysing using burpsuite
 
 
 ---
@@ -327,3 +328,26 @@ Use this to assess your knowledge across Web Application Security, Mobile Securi
 - How to protect the DB?
 - The web server is connecting with a DB server — where should the DB credentials be stored?
 - How to define and enforce trust boundaries?
+
+## AD
+1. How do you perform Kerberoasting in an Active Directory penetration test, and what makes an account vulnerable to it?
+2. What is Active Directory, and explain the core components — domain, forest, OU, and domain controller — and how they relate to each other.
+3. What is Kerberoasting. how it works
+4. Describe the process of performing a DCSync attack and what privileges are required.
+5. What is a Golden Ticket attack, and how does it differ from a Silver Ticket?
+6. You've compromised a low-privilege domain user account on an internal network assessment. Walk through a realistic AD attack chain you'd attempt, from initial enumeration to Domain Admin, and explain your decision points along the way.
+7. You compromise a low-privilege domain user and run BloodHound. It shows your user is a member of a group with GenericWrite over a GPO linked to an OU containing several Tier-0 servers. Walk through exactly how you'd weaponize this.
+8. Explain the difference between ASREPRoasting and Kerberoasting, including exactly what makes an account vulnerable to each and how you'd identify candidates for both in an engagement.
+9. You find that SMB signing is disabled on several servers, and Responder has captured NTLMv2 hashes from passing traffic. Rather than cracking the hashes, explain how you'd use NTLM relay to escalate privileges, including a specific relay-to-LDAP scenario.
+10. What is the krbtgt account, why is its hash so critical, and walk through exactly what happens technically when you forge a Golden Ticket with it.
+11. You've identified a certificate template in AD CS that's vulnerable to ESC1. Explain precisely what configuration makes it exploitable and walk through the full exploitation chain to obtain a Domain Admin's TGT.
+12. A target environment has unconstrained delegation enabled on a non-DC application server. Explain how you'd realistically force a high-value account to authenticate to it, since passive waiting is unreliable, and what you do once you capture the ticket.
+13. Explain the MachineAccountQuota attribute, why it's a default AD weakness, and how an attacker chains it into a privilege escalation path without ever having existing computer object control.
+14.  You discover a non-admin user has WriteOwner rights over a security group that is itself nested into Domain Admins. Walk through the full ACL abuse chain to weaponize this.
+15.  A domain has the "Protected Users" security group and credential guard partially deployed, but only for a subset of privileged accounts. How does this change your approach to credential theft and lateral movement, and what gaps would you specifically look for?
+16.  Walk through how you would detect and abuse a misconfigured trust relationship between two domains or forests — specifically, how SID History abuse could let you escalate from a compromised child domain to Enterprise Admin in the forest root.
+17.  You're running BloodHound on a mid-sized AD environment (around 2,000 users, 500 computers) and the graph is overwhelming — too many nodes and paths to review manually in the time you have. How do you approach narrowing this down to find the most meaningful attack paths efficiently?
+
+## Privilege escalation
+1. what is suid.
+2. what is means sudo -l
